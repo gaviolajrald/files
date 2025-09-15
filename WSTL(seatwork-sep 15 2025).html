@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All 5 JavaScript Examples in One File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .example-section {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        #toggleDiv {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            border: 1px solid blue;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Button Click Examples</h1>
+
+    <div class="example-section">
+        <h2>1. Simple Alert</h2>
+        <p>Clicking this button will show a pop-up alert.</p>
+        <button id="alertBtn">Click Me for an Alert</button>
+    </div>
+
+    ---
+
+    <div class="example-section">
+        <h2>2. Change Text Content</h2>
+        <p>Click the button to change the text below.</p>
+        <p id="myParagraph">The original text is here.</p>
+        <button id="changeTextBtn">Change Text</button>
+    </div>
+
+    ---
+
+    <div class="example-section">
+        <h2>3. Toggle Visibility</h2>
+        <p>Click the button to hide or show the box.</p>
+        <button id="toggleBtn">Show/Hide Box</button>
+        <div id="toggleDiv"></div>
+    </div>
+
+    ---
+
+    <div class="example-section">
+        <h2>4. Simple Counter</h2>
+        <p>You have clicked the button <span id="counter">0</span> times.</p>
+        <button id="counterBtn">Click to Count</button>
+    </div>
+
+    ---
+
+    <div class="example-section">
+        <h2>5. Change Image Source</h2>
+        <p>Click the button to switch between two different images.</p>
+        <img id="myImage" src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Image+1" alt="Image 1">
+        <button id="imageBtn">Next Image</button>
+    </div>
+
+    <script>
+        // --- 1. Simple Alert ---
+        document.getElementById('alertBtn').addEventListener('click', function() {
+            alert('Button was clicked!');
+        });
+
+        // --- 2. Changing Text Content ---
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('myParagraph').textContent = 'The text has been changed!';
+        });
+
+        // --- 3. Toggling an Element's Visibility ---
+        document.getElementById('toggleBtn').addEventListener('click', function() {
+            const myDiv = document.getElementById('toggleDiv');
+            if (myDiv.style.display === 'none') {
+                myDiv.style.display = 'block';
+            } else {
+                myDiv.style.display = 'none';
+            }
+        });
+
+        // --- 4. Simple Counter ---
+        let count = 0;
+        document.getElementById('counterBtn').addEventListener('click', function() {
+            count++;
+            document.getElementById('counter').textContent = count;
+        });
+
+        // --- 5. Changing an Image Source ---
+        let isImage1 = true;
+        document.getElementById('imageBtn').addEventListener('click', function() {
+            const myImage = document.getElementById('myImage');
+            if (isImage1) {
+                myImage.src = "https://via.placeholder.com/150/FF0000/FFFFFF?text=Image+2";
+                myImage.alt = "Image 2";
+            } else {
+                myImage.src = "https://via.placeholder.com/150/0000FF/FFFFFF?text=Image+1";
+                myImage.alt = "Image 1";
+            }
+            isImage1 = !isImage1; // Toggle the state
+        });
+    </script>
+
+</body>
+</html>
